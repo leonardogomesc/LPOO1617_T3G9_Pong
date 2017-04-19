@@ -39,11 +39,10 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 	
 	@Override
 	protected void paintComponent(Graphics g) {
-	game.update();
 	super.paintComponent(g);
-	//g.drawImage(ball, (int)game.getBall().getPosition()[0], (int)game.getBall().getPosition()[1], 25, 25, null);
-	//graphics.panel.requestFocusInWindow();
-	g.fillOval((int)game.getBall().getPosition()[0], (int)game.getBall().getPosition()[1], 25, 25);
+	g.drawImage(ball, (int)game.getBall().getPosition()[0]-12, (int)game.getBall().getPosition()[1]-12, 24, 24, null);
+	
+	//g.fillOval((int)(game.getBall().getPosition()[0]-12), (int)(game.getBall().getPosition()[1]-12), 24, 24);
 	System.out.println("painted");
 	}
 
@@ -81,8 +80,8 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 	
 	public void gameInProgress(){
 		
-		while(game.getPlaying()){
-			//game.update();
+		//while(game.getPlaying()){
+			game.update();
 			repaint();
 			System.out.println("pressed");
 			System.out.println((int)game.getBall().getPosition()[0] +" "+(int)game.getBall().getPosition()[1]);
@@ -93,7 +92,7 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
-		}
+		//}
 	}
 
 

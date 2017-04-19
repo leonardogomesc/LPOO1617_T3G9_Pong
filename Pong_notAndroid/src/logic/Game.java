@@ -12,8 +12,10 @@ public class Game {
 	}
 	
 	public void update(){
-		ball.setPositionx(ball.getPosition()[0]+0.00005*ball.getVector()[0]);
-		ball.setPositiony(ball.getPosition()[1]+0.00005*ball.getVector()[1]);
+		collisionHandler();
+		
+		ball.setPositionx(ball.getPosition()[0]+10*ball.getVector()[0]);
+		ball.setPositiony(ball.getPosition()[1]+10*ball.getVector()[1]);
 		
 	}
 	
@@ -27,6 +29,24 @@ public class Game {
 	
 	public void setPlaying(boolean a){
 		playing=a;
+		
+	}
+	
+	public void collisionHandler(){
+		
+		if(ball.getPosition()[0]<=12 && ball.getVector()[0]<0){
+			ball.setVector_x(-ball.getVector()[0]);
+		}
+		else if(ball.getPosition()[1]<=12 && ball.getVector()[1]<0){
+			ball.setVector_y(-ball.getVector()[1]);
+		}
+		else if(ball.getPosition()[0]>=734-12 && ball.getVector()[0]>0){
+			ball.setVector_x(-ball.getVector()[0]);
+		}
+		else if(ball.getPosition()[1]>=412-12 && ball.getVector()[1]>0){
+			ball.setVector_y(-ball.getVector()[1]);
+			
+		}
 		
 	}
 

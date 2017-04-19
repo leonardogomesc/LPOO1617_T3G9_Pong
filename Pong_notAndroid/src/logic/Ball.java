@@ -8,11 +8,11 @@ public class Ball {
 	
 	public Ball(){
 		position=new double[2];
-		position[0]=0;
-		position[1]=0;
+		position[0]=335;
+		position[1]=200;
 		vector=new double[2];
-		vector[0]=Math.cos(Math.toRadians(45));
-		vector[1]=Math.sin(Math.toRadians(45));
+		vector[0]=Math.cos(Math.toRadians(40));
+		vector[1]=Math.sin(Math.toRadians(40));
       }
 	
 	
@@ -33,6 +33,14 @@ public class Ball {
 
 	public double[] getVector() {
 		return vector;
+	}
+	
+	public void setVector_x(double vector) {
+		this.vector[0] = vector;
+	}
+	
+	public void setVector_y(double vector) {
+		this.vector[1] = vector;
 	}
 
 
