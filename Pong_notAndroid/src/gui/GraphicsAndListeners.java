@@ -38,7 +38,7 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 		game=new Game();
 		this.graphics=g;
 		
-		t=new Timer(20,this);
+		t=new Timer(10,this);
 		
 	}
 	
@@ -156,7 +156,6 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 		repaint();
 		//System.out.println((int)game.getBall().getPosition()[0] +" "+(int)game.getBall().getPosition()[1]);
 	}
-		
 	}
 
 
