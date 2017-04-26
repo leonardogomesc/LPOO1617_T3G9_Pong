@@ -49,8 +49,10 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 	g.drawImage(square,(int)game.getP1().getPos()[0]-game.paddleSize[0]/2,(int)game.getP1().getPos()[1]-game.paddleSize[1]/2, game.paddleSize[0],game.paddleSize[1],null);
 	g.drawImage(square,(int)game.getP2().getPos()[0]-game.paddleSize[0]/2,(int)game.getP2().getPos()[1]-game.paddleSize[1]/2, game.paddleSize[0],game.paddleSize[1],null);
 	
+	if(game.getObstacles()!=null){
 	for(int i=0;i<game.getObstacles().length;i++){
 		g.drawImage(square, (int)(game.getObstacles()[i].getPos()[0]-game.getObstacles()[i].getSize()[0]/2), (int)(game.getObstacles()[i].getPos()[1]-game.getObstacles()[i].getSize()[1]/2), (int)game.getObstacles()[i].getSize()[0], (int)game.getObstacles()[i].getSize()[1], null);
+	}
 	}
 	
 	/*for(int x=0;x<700;x=x+5){

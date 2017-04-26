@@ -6,13 +6,13 @@ public class Ball {
 	private double vector[];
 	
 	
-	public Ball(double x,double y, int degrees){
+	public Ball(double x,double y, double vx,double vy){
 		position=new double[2];
 		position[0]=x;
 		position[1]=y;
 		vector=new double[2];
-		vector[0]=Math.cos(Math.toRadians(degrees));
-		vector[1]=Math.sin(Math.toRadians(degrees));
+		vector[0]=vx;
+		vector[1]=vy;
       }
 	
 	
