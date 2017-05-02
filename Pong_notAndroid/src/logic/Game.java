@@ -12,19 +12,20 @@ public class Game {
 	private double paddleVelocity;
 	public static final int ballSize=24;
 	public static final int paddleSize[]={10,90};
-	public static final int screen_x=734;
-	public static final int screen_y=412;
+	public static final int screen_x=984;
+	public static final int screen_y=562;
 	private int numberOfPlayers; 
 	private int finalPosition;
 	private int computerPaddleVelocity;
 	private int computerPaddleZone;
+	
 	
 	private boolean playing;
 	
 	private double startingPos[];
 	
 	public Game(){
-		ball=new Ball(500,150,Math.cos(Math.toRadians(0)),Math.sin(Math.toRadians(0)));
+		ball=new Ball(screen_x/2,screen_y/2-50,Math.cos(Math.toRadians(0)),Math.sin(Math.toRadians(0)));
 		ballSim=null;
 		
 		p1=new Player(screen_x-10,screen_y/2);
@@ -35,18 +36,27 @@ public class Game {
 		playing=false;
 		finalPosition=-1;
 		
-		ballVelocity=5;
+		ballVelocity=8;
 		paddleVelocity=4;
-		computerPaddleVelocity=3;
+		computerPaddleVelocity=5;
 		computerPaddleZone=0;
 		
-		o=new Obstacle[5];
+		o=new Obstacle[8];
 		
-		o[0]=new Obstacle(210,80,50,50);
+		/*o[0]=new Obstacle(210,80,50,50);
 		o[1]=new Obstacle(510,80,50,50);
 		o[2]=new Obstacle(210,412-80,50,50);
 		o[3]=new Obstacle(510,412-80,50,50);
-		o[4]=new Obstacle(360,200,50,50);
+		o[4]=new Obstacle(360,200,50,50);*/
+		
+		o[0]=new Obstacle(screen_x/2-50,screen_y/2-125,5,150);
+		o[1]=new Obstacle(screen_x/2+50,screen_y/2-125,5,150);
+		o[2]=new Obstacle(screen_x/2-50,screen_y/2+125,5,150);
+		o[3]=new Obstacle(screen_x/2+50,screen_y/2+125,5,150);
+		o[4]=new Obstacle(screen_x/2-125,screen_y/2-50,150,5);
+		o[5]=new Obstacle(screen_x/2-125,screen_y/2+50,150,5);
+		o[6]=new Obstacle(screen_x/2+125,screen_y/2-50,150,5);
+		o[7]=new Obstacle(screen_x/2+125,screen_y/2+50,150,5);
 		
 		
 		startingPos=new double[]{p1.getPos()[0],p1.getPos()[1],p2.getPos()[0],p2.getPos()[1],ball.getPosition()[0],ball.getPosition()[1]};
@@ -81,7 +91,6 @@ public class Game {
 			
 			if(finalPosition==-1){
 				simulation();
-				
 			}
 			
 			if(playing){
@@ -93,15 +102,17 @@ public class Game {
 			    p1.setPos_y(p1.getPos()[1]+paddleVelocity);
 			}
 			
+			
+			
 			if(finalPosition==2){
 				
 				if(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7< ballSim.getPosition()[1]){
-					if(ballSim.getPosition()[1]-p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7>6){
+					if(ballSim.getPosition()[1]-(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7)>6){
 					p2.setPos_y(p2.getPos()[1]+computerPaddleVelocity);
 					}
 				}
 				else if(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7>ballSim.getPosition()[1]){
-					if(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7-ballSim.getPosition()[1]>6){
+					if((p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7)-ballSim.getPosition()[1]>6){
 					p2.setPos_y(p2.getPos()[1]-computerPaddleVelocity);
 					}
 				}
@@ -110,12 +121,12 @@ public class Game {
 		  /* if(finalPosition==1){
 
 				if(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7< ballSim.getPosition()[1]){
-					if(ballSim.getPosition()[1]-p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7>6){
+					if(ballSim.getPosition()[1]-(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7)>6){
 						p1.setPos_y(p1.getPos()[1]+computerPaddleVelocity);
 					}
 				}
 				else if(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7>ballSim.getPosition()[1]){
-					if(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7-ballSim.getPosition()[1]>6){
+					if((p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7)-ballSim.getPosition()[1]>6){
 						p1.setPos_y(p1.getPos()[1]-computerPaddleVelocity);
 					}
 				}
@@ -306,8 +317,6 @@ public class Game {
 		}
 
 
-
-
 		if(!collidedWithPaddle){
 
 			if(ball.getPosition()[0]<=ballSize/2 && ball.getVector()[0]<0){
@@ -408,14 +417,22 @@ public class Game {
 	public void simulation(){
 		ballSim=new Ball(ball.getPosition()[0],ball.getPosition()[1],ball.getVector()[0],ball.getVector()[1]);
 		Random r=new Random();
+		
+		int counter=0;
 	
 		while(finalPosition==-1){
+			if(counter<30000){
 			updateSimulation();
+			}
+			else{
+				finalPosition=-2;
+			}
+			counter=counter+1;
 		}
 		
 	/// computerPaddleVelocity=r.nextInt(3)+3;
 	 computerPaddleZone=r.nextInt(7)-3;
-		
+	 	
 	}
 
 	private void updateSimulation() {

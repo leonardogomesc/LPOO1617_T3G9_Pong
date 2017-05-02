@@ -39,12 +39,12 @@ public class GraphicInterface{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 750, 450);
+		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		panel = new GraphicsAndListeners(this);
-		panel.setBounds(0, 0, 734, 412);
+		panel.setBounds(0, 0, 984, 562);
 		frame.getContentPane().add(panel);
 	}
 }

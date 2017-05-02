@@ -77,8 +77,9 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 	public void keyPressed(KeyEvent arg0) {
 		switch(arg0.getKeyCode()){ 
 		case KeyEvent.VK_LEFT: 
-			game.setPlaying(false); 
-			break; 
+			game.reset();
+        	repaint();
+			break;	
 		case KeyEvent.VK_RIGHT:
 			game.setPlaying(true); 
 			t.start();
@@ -97,10 +98,6 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 			break;
         case KeyEvent.VK_S:
         	game.getP2().setDown(true);
-			break;	
-        case KeyEvent.VK_R:
-        	game.reset();
-        	repaint();
 			break;	
 		}
 		
