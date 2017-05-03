@@ -16,7 +16,7 @@ public class Game {
 	public static final int screen_y=562;
 	private int numberOfPlayers; 
 	private int finalPosition;
-	private int computerPaddleVelocity;
+	private double computerPaddleVelocity;
 	private int computerPaddleZone;
 	
 	
@@ -25,7 +25,7 @@ public class Game {
 	private double startingPos[];
 	
 	public Game(){
-		ball=new Ball(screen_x/2,screen_y/2-50,Math.cos(Math.toRadians(0)),Math.sin(Math.toRadians(0)));
+		ball=new Ball(screen_x/2,screen_y/2,Math.cos(Math.toRadians(0)),Math.sin(Math.toRadians(0)));
 		ballSim=null;
 		
 		p1=new Player(screen_x-10,screen_y/2);
@@ -36,9 +36,9 @@ public class Game {
 		playing=false;
 		finalPosition=-1;
 		
-		ballVelocity=8;
+		ballVelocity=10;
 		paddleVelocity=4;
-		computerPaddleVelocity=5;
+		computerPaddleVelocity=7;
 		computerPaddleZone=0;
 		
 		o=new Obstacle[8];
@@ -95,17 +95,15 @@ public class Game {
 			
 			if(playing){
 				
-			if(p1.getUp()==true && p1.getPos()[1]>=0){
+			/*if(p1.getUp()==true && p1.getPos()[1]>=0){
 				p1.setPos_y(p1.getPos()[1]-paddleVelocity);
 			}
 			else if(p1.getDown()==true && p1.getPos()[1]<=screen_y){
 			    p1.setPos_y(p1.getPos()[1]+paddleVelocity);
-			}
-			
+			}*/
 			
 			
 			if(finalPosition==2){
-				
 				if(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7< ballSim.getPosition()[1]){
 					if(ballSim.getPosition()[1]-(p2.getPos()[1]+computerPaddleZone*paddleSize[1]/7)>6){
 					p2.setPos_y(p2.getPos()[1]+computerPaddleVelocity);
@@ -118,7 +116,7 @@ public class Game {
 				}
 			}
 
-		  /* if(finalPosition==1){
+		   if(finalPosition==1){
 
 				if(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7< ballSim.getPosition()[1]){
 					if(ballSim.getPosition()[1]-(p1.getPos()[1]+computerPaddleZone*paddleSize[1]/7)>6){
@@ -130,7 +128,7 @@ public class Game {
 						p1.setPos_y(p1.getPos()[1]-computerPaddleVelocity);
 					}
 				}
-			}*/
+			}
 
 			ball.setPositionx(ball.getPosition()[0]+ballVelocity*ball.getVector()[0]);
 			ball.setPositiony(ball.getPosition()[1]+ballVelocity*ball.getVector()[1]);
@@ -425,7 +423,10 @@ public class Game {
 			updateSimulation();
 			}
 			else{
-				finalPosition=-2;
+				ball.setVector_x(Math.cos(Math.toRadians((Math.toDegrees(Math.acos(ball.getVector()[0]))+1))));
+				ball.setVector_y(Math.cos(Math.toRadians((Math.toDegrees(Math.acos(ball.getVector()[1]))+1))));
+				ballSim=new Ball(ball.getPosition()[0],ball.getPosition()[1],ball.getVector()[0],ball.getVector()[1]);
+				counter=0;
 			}
 			counter=counter+1;
 		}
