@@ -423,8 +423,9 @@ public class Game {
 			updateSimulation();
 			}
 			else{
-				ball.setVector_x(Math.cos(Math.toRadians((Math.toDegrees(Math.acos(ball.getVector()[0]))+1))));
-				ball.setVector_y(Math.cos(Math.toRadians((Math.toDegrees(Math.acos(ball.getVector()[1]))+1))));
+				ball.setVector_x(Math.cos(Math.acos(ball.getVector()[0])+(2*Math.PI/360)));
+				ball.setVector_y(Math.sin(Math.asin(ball.getVector()[1])+(2*Math.PI/360)));
+				
 				ballSim=new Ball(ball.getPosition()[0],ball.getPosition()[1],ball.getVector()[0],ball.getVector()[1]);
 				counter=0;
 			}
