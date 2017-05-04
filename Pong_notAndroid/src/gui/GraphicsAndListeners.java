@@ -85,19 +85,19 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 			t.start();
 		break;  
 		case KeyEvent.VK_UP:
-			game.getP1().setUp(true);
+			game.getP2().setUp(true);
 			//System.out.println("UP, pressed");
 			
 		break; 
 		case KeyEvent.VK_DOWN:
-			game.getP1().setDown(true);
+			game.getP2().setDown(true);
 			//System.out.println("Down, pressed");
 		break; 
 		case KeyEvent.VK_W:
-			game.getP2().setUp(true);
+			game.getP1().setUp(true);
 			break;
         case KeyEvent.VK_S:
-        	game.getP2().setDown(true);
+        	game.getP1().setDown(true);
 			break;	
 		}
 		
@@ -107,16 +107,16 @@ public class GraphicsAndListeners extends JPanel implements KeyListener, MouseLi
 	public void keyReleased(KeyEvent arg0) {
 		switch(arg0.getKeyCode()){
 		case KeyEvent.VK_UP:
-			game.getP1().setUp(false);
+			game.getP2().setUp(false);
 			break; 
 		case KeyEvent.VK_DOWN:
-			game.getP1().setDown(false);
+			game.getP2().setDown(false);
 			break; 
 		case KeyEvent.VK_W:
-			game.getP2().setUp(false);
+			game.getP1().setUp(false);
 			break;
 		case KeyEvent.VK_S:
-			game.getP2().setDown(false);
+			game.getP1().setDown(false);
 			break;	
 		}
 
