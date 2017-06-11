@@ -45,6 +45,6 @@ Here you have to choose if you want to play again or if you want to go to the ma
 
 Settings:
 <br />
-This is the settings screen, here you can change the paddle velocities, and the ball velocity, and also change the map.
+This is the settings screen, here you can change the paddle velocities, the ball velocity, and also change the map.
 <br />
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193133%5B1%5D.png)
