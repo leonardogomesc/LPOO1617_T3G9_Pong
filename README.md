@@ -10,6 +10,7 @@ How to set up the development environment:<br />
 5: Now you can run the app on Android Studio.<br /><br />
 ## Development documentation:
 <br />
+
 UML:<br />
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/pongUML.png)
 <br /><br />
