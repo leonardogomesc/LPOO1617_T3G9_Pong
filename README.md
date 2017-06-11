@@ -37,7 +37,7 @@ To start click on the screen and then the paddle will follow the position of you
 
 Loss Screen:
 <br />
-Hero you have to choose if you want to play again or if you want to go to the main menu.<br /> 
+Here you have to choose if you want to play again or if you want to go to the main menu.<br /> 
 
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193158%5B1%5D.png)
 
