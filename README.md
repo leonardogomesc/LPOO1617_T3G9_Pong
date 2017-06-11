@@ -11,7 +11,7 @@ How to set up the development environment:<br />
 UML:
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/pongUML.png)
 <br /><br />
-Manual Do Jogo:
+##Manual Do Jogo:
 
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193110%5B1%5D.png)
 
