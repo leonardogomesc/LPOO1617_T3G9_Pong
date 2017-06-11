@@ -13,7 +13,7 @@ How to set up the development environment:<br />
 <br /><br />
 ## Manual Do Jogo:
 <br />
- Main Menu:
+Main Menu:
 <br />
 Here you can choose the number of players and go to the settings.
 <br />
