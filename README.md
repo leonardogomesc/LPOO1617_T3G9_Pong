@@ -10,3 +10,16 @@ How to set up the development environment:<br />
 5: Now you can run the app on Android Studio.<br /><br />
 UML:
 ![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/pongUML.png)
+<br /><br />
+Manual Do Jogo:
+
+![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193110%5B1%5D.png)
+
+
+![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193148%5B1%5D.png)
+
+
+![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193158%5B1%5D.png)
+
+
+![alt tag](https://github.com/leonardogomesc/LPOO1617_T3G9_Pong/blob/finalRelease/Screenshot_20170611-193133%5B1%5D.png)
